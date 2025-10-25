@@ -291,13 +291,13 @@ Crear `config/analytics.js`:
 ```javascript
 const ANALYTICS_CONFIG = {
     // Google Analytics 4
-    GA4_ID: 'G-H8729C1L8T', // ← Reemplazar con tu ID real
+    GA4_ID: 'G-XXXXXXXXXX', // ← Reemplazar con tu ID real
     
     // Facebook Pixel
     FACEBOOK_PIXEL_ID: 'TU_PIXEL_ID', // ← Reemplazar con tu Pixel ID
     
     // Google Tag Manager
-    GTM_ID: 'GTM-MF3VPX8B', // ← Reemplazar con tu Container ID
+    GTM_ID: 'GTM-XXXXXXX', // ← Reemplazar con tu Container ID
     
     // Configuración adicional
     DEBUG_MODE: false, // Cambiar a true para desarrollo

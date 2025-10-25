@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Catálogo completo de productos artesanales Ruebec. Descubrí gorros, cardigans, mitones, bufandas y más tejidos a mano." />
+  <meta name="keywords" content="catálogo tejidos, productos artesanales, comprar tejidos, lana, gorros, cardigans" />
+  <meta name="author" content="Ruebec" />
+  
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="../img/icono-header.png" />
+  
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://ruebec.netlify.app/catalogo.html" />
+  <meta property="og:site_name" content="Ruebec" />
+  <meta property="og:title" content="Ruebec - Catálogo de Tejidos Artesanales" />
+  <meta property="og:description" content="Catálogo completo de productos tejidos a mano con amor. Comprá directo por WhatsApp." />
+  <meta property="og:image" content="https://ruebec.netlify.app/img/sobre-nosotros.jpg" />
+  
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:site" content="@ruebec_" />
+  <meta name="twitter:title" content="Ruebec - Catálogo" />
+  <meta name="twitter:description" content="Catálogo completo de productos tejidos a mano con amor." />
+  <meta name="twitter:image" content="https://ruebec.netlify.app/img/sobre-nosotros.jpg" />
+  
+  <title>Ruebec - Catálogo</title>
+  
+  <!-- Google Tag Manager -->
+  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-MF3VPX8B');</script>
+  <!-- End Google Tag Manager -->
+  
+  <!-- Analíticas - Configuración -->
+  <script src="../config/analytics.js"></script>
+  <script src="../logic/analytics.js"></script>
+  
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Lato&family=Pacifico&family=Playfair+Display&display=swap"
+    rel="stylesheet" />
+  <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
+  <link rel="stylesheet" href="../style.css">
+</head>
+
+<body data-page="pages">
+  <!-- Google Tag Manager (noscript) -->
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MF3VPX8B"
+  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+  <!-- End Google Tag Manager (noscript) -->
+  
+  <!-- Navbar cargada por JS -->
+  <div id="navbar-container"></div>
+  <header class="hero-header parallax-header text-white">
+    <div class="container py-5 text-center" data-aos="fade-down">
+      <!-- Leyenda de prueba -->
+      <div class="alert alert-warning d-inline-block mb-3" role="alert">
+        <i class="fa-solid fa-flask me-2"></i>
+        <strong>Sitio en desarrollo - Solo para pruebas</strong>
+        <br>
+        <small>Esta página no está en funcionamiento comercial</small>
+      </div>
+      <h1 class="display-5 titulo-header">Catálogo completo</h1>
+      <p class="lead subtitulo-header">Todos nuestros productos artesanales</p>
+    </div>
+  </header>
+  <main class="container py-5" role="main">
+   
+    
+    <!-- Filtros y Buscador -->
+    <div class="row mb-4">
+      <div class="col-md-3 mb-3 mb-md-0">
+        <select id="filtro-categoria" class="form-select">
+          <option value="todos">Todas las categorías</option>
+          <option value="accesorios">Accesorios</option>
+          <option value="ropa">Ropa</option>
+          <option value="juguetes">Juguetes</option>
+          <option value="hogar">Hogar</option>
+        </select>
+      </div>
+      <div class="col-md-3 mb-3 mb-md-0">
+        <select id="filtro-precio" class="form-select">
+          <option value="todos">Todos los precios</option>
+          <option value="0-3000">Hasta $3.000</option>
+          <option value="3000-5000">$3.000 - $5.000</option>
+          <option value="5000-7000">$5.000 - $7.000</option>
+          <option value="7000+">Más de $7.000</option>
+        </select>
+      </div>
+      <div class="col-md-3 mb-3 mb-md-0">
+        <select id="ordenamiento" class="form-select">
+          <option value="destacado">Destacados</option>
+          <option value="precio-asc">Precio: menor a mayor</option>
+          <option value="precio-desc">Precio: mayor a menor</option>
+          <option value="nombre-asc">Nombre: A-Z</option>
+          <option value="nombre-desc">Nombre: Z-A</option>
+        </select>
+      </div>
+      <div class="col-md-3">
+        <input type="text" id="buscador" class="form-control" placeholder="Buscar..." />
+      </div>
+    </div>
+    
+    <!-- Contador de productos -->
+    <div class="row mb-3">
+      <div class="col-12">
+        <p class="text-muted mb-0" id="contador-productos">
+          <i class="fa-solid fa-box-open me-1"></i> Mostrando <strong id="productos-mostrados">0</strong> de <strong id="productos-totales">0</strong> productos
+        </p>
+      </div>
+    </div>
+    <div class="row" id="catalogo"></div>
+  </main>
+  <!--icono flotante-->
+  <a href="https://wa.me/5493513891117" target="_blank" class="whatsapp-float" aria-label="WhatsApp">
+    <i class="bi bi-whatsapp"></i>
+  </a>
+  <a href="#" id="btn-top" class="btn btn-dark shadow rounded-circle" title="Volver arriba">
+    <i class="bi bi-arrow-up"></i>
+  </a>
+  <!-- Calculadora de Costos de Envío -->
+  <section id="calculadora-envios" class="py-5 bg-light">
+    <div class="container" data-aos="fade-up">
+      <div class="row justify-content-center">
+        <div class="col-lg-8">
+          <div class="envio-calculator">
+            <div class="text-center mb-4">
+              <h2 class="mb-3">
+                <i class="fa-solid fa-truck-fast me-2"></i>
+                Calculá tu Envío
+              </h2>
+              <p class="text-muted">Enviamos a todo el país con Correo Argentino o transporte privado</p>
+            </div>
+            
+            <div class="row g-3">
+              <div class="col-md-6">
+                <label for="provincia-envio" class="form-label fw-bold text-dark">Provincia:</label>
+                <select class="form-select form-select-lg" id="provincia-envio">
+                  <option value="">Seleccioná tu provincia</option>
+                  <option value="cordoba">Córdoba (Capital y GBA)</option>
+                  <option value="buenosaires-interior">Buenos Aires (Interior)</option>
+                  <option value="caba">CABA y GBA</option>
+                  <option value="centro">Centro (Santa Fe, Entre Ríos, La Pampa)</option>
+                  <option value="cuyo">Cuyo (Mendoza, San Juan, San Luis)</option>
+                  <option value="norte">Norte (Salta, Jujuy, Tucumán, Catamarca, La Rioja, Santiago del Estero)</option>
+                  <option value="nea">NEA (Chaco, Corrientes, Formosa, Misiones)</option>
+                  <option value="patagonia">Patagonia (Neuquén, Río Negro, Chubut, Santa Cruz, Tierra del Fuego)</option>
+                </select>
+              </div>
+              <div class="col-md-6">
+                <label for="peso-envio" class="form-label fw-bold text-dark">Peso estimado:</label>
+                <select class="form-select form-select-lg" id="peso-envio">
+                  <option value="">Seleccioná</option>
+                  <option value="ligero">Ligero (Gorro, Mitones) - hasta 300g</option>
+                  <option value="medio">Medio (Bufanda, Saquito) - 300g-800g</option>
+                  <option value="pesado">Pesado (Cardigan, Poncho) - más de 800g</option>
+                </select>
+              </div>
+            </div>
+            
+            <div class="text-center mt-4">
+              <button class="btn btn-lg btn-primary" id="calcular-envio-btn">
+                <i class="fa-solid fa-calculator me-2"></i>Calcular Costo
+              </button>
+            </div>
+            
+            <div id="resultado-envio" class="envio-result d-none mt-4">
+              <div class="d-flex align-items-center mb-3">
+                <i class="fa-solid fa-box-open fa-2x text-primary me-3"></i>
+                <div>
+                  <h5 class="mb-1">Costo de Envío Estimado</h5>
+                  <p class="mb-0 text-muted small">Tiempo de entrega: <span id="tiempo-entrega"></span></p>
+                </div>
+              </div>
+              <div class="d-flex justify-content-between align-items-center">
+                <span class="fs-5">Total:</span>
+                <span class="fs-3 fw-bold text-primary" id="costo-envio">$0</span>
+              </div>
+              <hr>
+              <p class="small text-muted mb-0">
+                <i class="fa-solid fa-circle-info me-1"></i>
+                Este es un costo estimado. El precio final puede variar según el producto específico y la dirección exacta. 
+                <a href="https://wa.me/5493513891117" target="_blank" class="text-primary text-decoration-none fw-bold">Consultá por WhatsApp</a> 
+                para obtener un presupuesto exacto.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer cargado por JS -->
+  <div id="footer-container"></div>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+  <script>AOS.init();</script>
+  <script src="../logic/layout.js"></script>
+  <script src="../logic/theme.js"></script>
+  <script src="../logic/productos.js"></script>
+  <script src="../logic/wishlist.js"></script>
+  <script src="../logic/catalogo.js"></script>
+</body>
+
+</html>

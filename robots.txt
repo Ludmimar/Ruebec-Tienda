@@ -1,0 +1,36 @@
+# robots.txt para Ruebec - Tejidos Artesanales
+User-agent: *
+Allow: /
+
+# Permitir archivos principales
+Allow: /index.html
+Allow: /style.css
+Allow: /img/
+Allow: /logic/
+Allow: /components/
+
+# Permitir páginas secundarias
+Allow: /pages/catalogo.html
+Allow: /pages/sobre-nosotros.html
+Allow: /pages/contacto.html
+Allow: /pages/politicas.html
+Allow: /pages/404.html
+
+# Bloquear archivos de sistema y configuración
+Disallow: /.git/
+Disallow: /.vscode/
+Disallow: /.idea/
+Disallow: /README.md
+Disallow: /.gitignore
+Disallow: /config/
+Disallow: /documentacion/
+
+# Bloquear archivos de desarrollo
+Disallow: /logic/app.js
+Disallow: /*.md
+Disallow: /pages/pages/
+
+# Sitemap
+Sitemap: https://ruebec.netlify.app/sitemap.xml
+
+

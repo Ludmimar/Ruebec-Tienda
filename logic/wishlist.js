@@ -102,8 +102,11 @@ class Wishlist {
   // Actualizar contador en navbar con retry
   updateNavbarCount() {
     const countBadge = document.getElementById('wishlist-count');
+    const countBadgeFloat = document.getElementById('wishlist-count-float');
+    const wishlistFloatBtn = document.getElementById('wishlist-float-btn');
     const count = this.getCount();
     
+    // Actualizar badge desktop (si existe)
     if (countBadge) {
       countBadge.textContent = count;
       if (count > 0) {
@@ -111,7 +114,28 @@ class Wishlist {
       } else {
         countBadge.classList.add('d-none');
       }
-    } else {
+    }
+    
+    // Actualizar badge flotante
+    if (countBadgeFloat) {
+      countBadgeFloat.textContent = count;
+      if (count > 0) {
+        countBadgeFloat.classList.remove('d-none');
+      } else {
+        countBadgeFloat.classList.add('d-none');
+      }
+    }
+    
+    // Mostrar/ocultar botón flotante según tenga items
+    if (wishlistFloatBtn) {
+      if (count > 0) {
+        wishlistFloatBtn.classList.add('has-items');
+      } else {
+        wishlistFloatBtn.classList.remove('has-items');
+      }
+    }
+    
+    if (!countBadge && !countBadgeFloat && !wishlistFloatBtn) {
       // Si no existe el badge, intentar de nuevo con múltiples reintentos
       setTimeout(() => this.updateNavbarCount(), 100);
       setTimeout(() => this.updateNavbarCount(), 300);
@@ -141,9 +165,10 @@ class Wishlist {
       observer.observe(navbarContainer, { childList: true });
     }
     
-    // Event listener para el botón de wishlist en navbar
+    // Event listener para el botón de wishlist en navbar y flotante
     document.addEventListener('click', (e) => {
-      if (e.target.closest('#wishlist-nav-btn')) {
+      if (e.target.closest('#wishlist-nav-btn') || 
+          e.target.closest('#wishlist-float-btn')) {
         e.preventDefault();
         this.showWishlistModal();
       }
@@ -306,29 +331,18 @@ class Wishlist {
   
   // Renderizar card de producto en el modal
   renderProductCard(producto) {
-    const imagenPrincipal = producto.imagenes && producto.imagenes.length > 0 
-      ? `img/${producto.imagenes[0]}` 
-      : 'img/placeholder.jpg';
-    
     return `
       <div class="card mb-3 wishlist-item-card">
-        <div class="row g-0">
-          <div class="col-md-3">
-            <img src="${imagenPrincipal}" class="img-fluid rounded-start" alt="${producto.nombre}" style="height: 150px; object-fit: cover; width: 100%;">
-          </div>
-          <div class="col-md-9">
-            <div class="card-body">
-              <div class="d-flex justify-content-between align-items-start">
-                <div>
-                  <h6 class="card-title mb-1">${producto.nombre}</h6>
-                  <p class="card-text text-muted small mb-2">${producto.descripcion}</p>
-                  <p class="text-primary fw-bold mb-0">$${producto.precio.toLocaleString('es-AR')}</p>
-                </div>
-                <button class="btn btn-sm btn-outline-danger btn-remove-wishlist" data-product-id="${producto.id}" title="Quitar de favoritos">
-                  <i class="fa-solid fa-trash"></i>
-                </button>
-              </div>
+        <div class="card-body">
+          <div class="d-flex justify-content-between align-items-start">
+            <div class="flex-grow-1">
+              <h6 class="card-title mb-1">${producto.nombre}</h6>
+              <p class="card-text text-muted small mb-2">${producto.descripcion}</p>
+              <p class="text-primary fw-bold mb-0">$${producto.precio.toLocaleString('es-AR')}</p>
             </div>
+            <button class="btn btn-sm btn-outline-danger btn-remove-wishlist ms-3" data-product-id="${producto.id}" title="Quitar de favoritos">
+              <i class="fa-solid fa-trash"></i>
+            </button>
           </div>
         </div>
       </div>

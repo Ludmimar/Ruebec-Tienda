@@ -97,10 +97,42 @@ h5 {
     color: #000 !important
 }
 
-.lead,
 .titulo-footer,
 .fw-bold{
     color: #ffffff
+}
+
+/* Lead en hero headers se mantiene blanco */
+header .lead,
+.hero-header .lead,
+.parallax-header .lead,
+.text-white .lead {
+    color: #ffffff !important;
+}
+
+/* Lead en cards y main debe ser negro en modo claro */
+main .card .lead,
+main .card-body .lead,
+main p.lead {
+    color: #000 !important;
+}
+
+/* Lead en modo oscuro debe ser blanco */
+[data-theme="dark"] main .card .lead,
+[data-theme="dark"] main .card-body .lead,
+[data-theme="dark"] main p.lead {
+    color: #ffffff !important;
+}
+
+/* Botones en modo oscuro */
+[data-theme="dark"] .btn-outline-dark {
+    border-color: #fff !important;
+    color: #fff !important;
+}
+
+[data-theme="dark"] .btn-outline-dark:hover {
+    background-color: #fff !important;
+    color: #000 !important;
 }
 
 .card-title {
@@ -202,6 +234,117 @@ nav a i.bi {
 .navbar-nav .nav-link:hover {
     color: #6c757d;
     letter-spacing: .5px
+}
+
+/* Botones siempre visibles fuera del menú collapse */
+#wishlist-nav-btn,
+#wishlist-mobile-btn {
+    color: white !important;
+    text-decoration: none;
+    position: relative;
+}
+
+#wishlist-nav-btn:hover,
+#wishlist-mobile-btn:hover {
+    color: #ddd !important;
+}
+
+.navbar .theme-toggle {
+    display: inline-block;
+}
+
+/* Forzar que tema y hamburguesa se vean siempre en móvil */
+.navbar .d-flex.align-items-center {
+    display: flex !important;
+}
+
+.navbar .theme-toggle {
+    display: block !important;
+    visibility: visible !important;
+}
+
+/* Hamburguesa solo en móvil */
+@media (min-width: 992px) {
+    .navbar #menu-toggle {
+        display: none !important;
+    }
+}
+
+@media (max-width: 991.98px) {
+    .navbar #menu-toggle {
+        display: block !important;
+        visibility: visible !important;
+    }
+}
+
+/* Override de Bootstrap en móvil para mantener botones visibles */
+@media (max-width: 991.98px) {
+    .navbar .container-fluid:not(.collapse) {
+        display: flex !important;
+    }
+    
+    .navbar .container-fluid .d-flex {
+        display: flex !important;
+    }
+    
+    .navbar .navbar-toggler,
+    .navbar .theme-toggle {
+        display: block !important;
+        visibility: visible !important;
+        opacity: 1 !important;
+    }
+}
+
+/* Ajustes responsive para pantallas pequeñas */
+@media (max-width: 590px) {
+    #wishlist-nav-btn {
+        padding: 0.25rem !important;
+    }
+    
+    .theme-toggle {
+        width: 30px;
+        height: 30px;
+    }
+}
+
+@media (max-width: 480px) {
+    #wishlist-nav-btn {
+        padding: 0.2rem !important;
+    }
+    
+    .theme-toggle {
+        width: 25px;
+        height: 25px;
+    }
+}
+
+/* Wishlist float (izquierda) - oculto por defecto */
+.wishlist-float {
+    position: fixed;
+    left: 20px;
+    bottom: 90px;
+    z-index: 1000;
+    width: 60px;
+    height: 60px;
+    background-color: #dc3545;
+    font-size: 28px;
+    border-radius: 50%;
+    display: none; /* Oculto por defecto */
+    align-items: center;
+    justify-content: center;
+    transition: transform .3s;
+    color: #fff;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, .3);
+}
+
+.wishlist-float:hover {
+    transform: scale(1.1);
+    color: #fff;
+}
+
+/* Mostrar cuando tiene items */
+.wishlist-float.has-items {
+    display: flex !important;
 }
 
 .whatsapp-float {
@@ -1332,11 +1475,19 @@ img[loading="lazy"].loaded {
   .navbar .container {
     padding-left: 5px;
     padding-right: 5px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
   }
   
   .navbar-toggler {
     padding: 2px 4px;
     font-size: 0.7rem;
+  }
+  
+  /* Botones siempre visibles en móvil */
+  #wishlist-nav-btn {
+    padding: 0.2rem !important;
   }
   
   .badge {
@@ -1378,11 +1529,15 @@ img[loading="lazy"].loaded {
     padding-left: 10px;
     padding-right: 10px;
     margin: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
   }
   
   .navbar-brand {
     font-size: 1.2rem;
     margin-right: 5px;
+    flex-shrink: 0;
   }
   
   .navbar-toggler {
@@ -1403,6 +1558,11 @@ img[loading="lazy"].loaded {
   /* Elementos del navbar derecho más compactos */
   .navbar-nav.d-flex {
     gap: 5px;
+  }
+  
+  /* Botones siempre visibles en móvil */
+  #wishlist-nav-btn {
+    padding: 0.25rem !important;
   }
   
   .badge {

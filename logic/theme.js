@@ -8,19 +8,24 @@
   
   // Función para inicializar el toggle
   function initThemeToggle() {
+    // Botones desktop y móvil
     const themeToggle = document.getElementById('theme-toggle');
     const themeIcon = document.getElementById('theme-icon');
+    const themeToggleMobile = document.getElementById('theme-toggle-mobile');
+    const themeIconMobile = document.getElementById('theme-icon-mobile');
     
-    if (!themeToggle || !themeIcon) {
+    if ((!themeToggle || !themeIcon) && (!themeToggleMobile || !themeIconMobile)) {
       // Si no encuentra los elementos, intenta de nuevo en 100ms
       setTimeout(initThemeToggle, 100);
       return;
     }
     
-    // Configurar estado inicial del toggle
+    // Configurar estado inicial del toggle (ambos)
     if (savedTheme === 'dark') {
-      themeToggle.classList.add('active');
-      themeIcon.className = 'bi bi-moon-stars-fill';
+      if (themeToggle) themeToggle.classList.add('active');
+      if (themeIcon) themeIcon.className = 'bi bi-moon-stars-fill';
+      if (themeToggleMobile) themeToggleMobile.classList.add('active');
+      if (themeIconMobile) themeIconMobile.className = 'bi bi-moon-stars-fill';
     }
     
     // Función para cambiar tema
@@ -32,18 +37,23 @@
       document.documentElement.setAttribute('data-theme', newTheme);
       localStorage.setItem('theme', newTheme);
       
-      // Actualizar toggle
+      // Actualizar toggle (ambos)
       if (newTheme === 'dark') {
-        themeToggle.classList.add('active');
-        themeIcon.className = 'bi bi-moon-stars-fill';
+        if (themeToggle) themeToggle.classList.add('active');
+        if (themeIcon) themeIcon.className = 'bi bi-moon-stars-fill';
+        if (themeToggleMobile) themeToggleMobile.classList.add('active');
+        if (themeIconMobile) themeIconMobile.className = 'bi bi-moon-stars-fill';
       } else {
-        themeToggle.classList.remove('active');
-        themeIcon.className = 'bi bi-sun-fill';
+        if (themeToggle) themeToggle.classList.remove('active');
+        if (themeIcon) themeIcon.className = 'bi bi-sun-fill';
+        if (themeToggleMobile) themeToggleMobile.classList.remove('active');
+        if (themeIconMobile) themeIconMobile.className = 'bi bi-sun-fill';
       }
     }
     
-    // Event listener
-    themeToggle.addEventListener('click', toggleTheme);
+    // Event listener para ambos botones
+    if (themeToggle) themeToggle.addEventListener('click', toggleTheme);
+    if (themeToggleMobile) themeToggleMobile.addEventListener('click', toggleTheme);
   }
   
   // Intentar inicializar cuando el DOM esté listo

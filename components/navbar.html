@@ -1,69 +1,124 @@
 <!-- Navbar -->
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top shadow-sm" role="navigation" aria-label="Navegación principal">
-    <div class="container">
+<nav class="navbar navbar-dark bg-dark fixed-top shadow-sm" role="navigation" aria-label="Navegación principal" style="padding-top: 0.5rem; padding-bottom: 0.5rem;">
+    <div class="container-fluid d-flex justify-content-between align-items-center">
+        <!-- Logo -->
         <a class="navbar-brand fw-bold" href="/index.html">Ruebec</a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarRuebec"
-            aria-controls="navbarRuebec" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
+        
+        <!-- Botones siempre visibles -->
+        <div class="d-flex align-items-center gap-2">
+            <!-- Tema: siempre visible -->
+            <div class="theme-toggle" id="theme-toggle">
+                <div class="theme-toggle-slider">
+                    <i class="bi bi-sun-fill" id="theme-icon"></i>
+                </div>
+            </div>
+            
+            <!-- Hamburguesa: solo en móvil -->
+            <button class="navbar-toggler border-0 d-lg-none" type="button" id="menu-toggle" style="background: none; color: white;">
+                <i class="bi bi-list fs-3"></i>
+            </button>
+        </div>
+    </div>
 
-        <div class="collapse navbar-collapse" id="navbarRuebec">
-            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                <li class="nav-item">
-                    <a class="nav-link" href="/index.html">Inicio</a>
+    <!-- Menú desktop (visible en pantallas grandes) -->
+    <div class="d-none d-lg-block container-fluid">
+        <ul class="navbar-nav d-flex flex-row justify-content-end align-items-center gap-3 mb-2 mb-lg-0">
+            <li class="nav-item">
+                <a class="nav-link text-white" href="/index.html">Inicio</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link text-white" href="/pages/sobre-nosotros.html">Sobre Ruebec</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link text-white" href="/pages/catalogo.html">Catálogo</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link text-white" href="/pages/contacto.html">Contacto</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link text-white" href="/pages/politicas.html">Políticas</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link text-white" href="#" data-bs-toggle="modal" data-bs-target="#modalTalles">Guía de Talles</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link text-white" href="/pages/politicas.html#faq">FAQ</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link text-white" href="https://www.instagram.com/" target="_blank">
+                    <i class="bi bi-instagram fs-5"></i>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link text-white" href="https://wa.me/5493513891117" target="_blank">
+                    <i class="bi bi-whatsapp fs-5"></i>
+                </a>
+            </li>
+        </ul>
+    </div>
+
+    <!-- Menú móvil desplegable (inicialmente oculto) -->
+    <div id="mobile-menu" class="bg-dark d-lg-none" style="display: none;">
+        <div class="container-fluid py-3">
+            <ul class="list-unstyled mb-0">
+                <li class="mb-2">
+                    <a class="text-white text-decoration-none d-block py-2" href="/index.html">Inicio</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/pages/sobre-nosotros.html">Sobre Ruebec</a>
+                <li class="mb-2">
+                    <a class="text-white text-decoration-none d-block py-2" href="/pages/sobre-nosotros.html">Sobre Ruebec</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/pages/catalogo.html">Catálogo</a>
+                <li class="mb-2">
+                    <a class="text-white text-decoration-none d-block py-2" href="/pages/catalogo.html">Catálogo</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/pages/contacto.html">Contacto</a>
+                <li class="mb-2">
+                    <a class="text-white text-decoration-none d-block py-2" href="/pages/contacto.html">Contacto</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/pages/politicas.html">Políticas</a>
+                <li class="mb-2">
+                    <a class="text-white text-decoration-none d-block py-2" href="/pages/politicas.html">Políticas</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#" data-bs-toggle="modal" data-bs-target="#modalTalles">Guía de Talles</a>
+                <li class="mb-2">
+                    <a class="text-white text-decoration-none d-block py-2" href="#" data-bs-toggle="modal" data-bs-target="#modalTalles">Guía de Talles</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/pages/politicas.html#faq">FAQ</a>
+                <li class="mb-2">
+                    <a class="text-white text-decoration-none d-block py-2" href="/pages/politicas.html#faq">FAQ</a>
+                </li>
+                <li class="mb-2">
+                    <a class="text-white text-decoration-none d-block py-2" href="https://www.instagram.com/" target="_blank">
+                        <i class="bi bi-instagram me-2"></i>Instagram
+                    </a>
+                </li>
+                <li class="mb-2">
+                    <a class="text-white text-decoration-none d-block py-2" href="https://wa.me/5493513891117" target="_blank">
+                        <i class="bi bi-whatsapp me-2"></i>WhatsApp
+                    </a>
                 </li>
             </ul>
-            <ul class="navbar-nav d-flex flex-row align-items-center gap-2">
-                <!-- Leyenda de prueba -->
-                <li class="nav-item">
-                    <span class="badge bg-warning text-dark small">
-                        <i class="fa-solid fa-flask me-1"></i>Solo para pruebas
-                    </span>
-                </li>
-                <li class="nav-item">
-                    <a href="https://www.instagram.com/" target="_blank" class="nav-link">
-                        <i class="bi bi-instagram fs-5"></i>
-                    </a>
-                </li>
-                <li class="nav-item ms-2">
-                    <a href="https://wa.me/5493513891117" target="_blank" class="nav-link">
-                        <i class="bi bi-whatsapp fs-5"></i>
-                    </a>
-                </li>
-                <!-- Wishlist -->
-                <li class="nav-item ms-2 position-relative">
-                    <a href="#" class="nav-link" id="wishlist-nav-btn" title="Mis Favoritos">
-                        <i class="bi bi-heart fs-5"></i>
-                        <span class="wishlist-badge d-none" id="wishlist-count">0</span>
-                    </a>
-                </li>
-                <!-- Toggle Modo Oscuro -->
-                <li class="nav-item ms-3">
-                    <div class="theme-toggle" id="theme-toggle" title="Cambiar tema">
-                        <div class="theme-toggle-slider">
-                            <i class="bi bi-sun-fill" id="theme-icon"></i>
-                        </div>
-                    </div>
-                </li>
-            </ul>
+            <div class="text-center mt-3">
+                <span class="badge bg-warning text-dark">
+                    <i class="fa-solid fa-flask me-1"></i>Solo para pruebas
+                </span>
+            </div>
         </div>
     </div>
 </nav>
+
+<script>
+// Toggle del menú móvil
+document.addEventListener('DOMContentLoaded', function() {
+    const menuToggle = document.getElementById('menu-toggle');
+    const mobileMenu = document.getElementById('mobile-menu');
+    const icon = menuToggle.querySelector('i');
+    
+    if (menuToggle && mobileMenu) {
+        menuToggle.addEventListener('click', function() {
+            if (mobileMenu.style.display === 'none') {
+                mobileMenu.style.display = 'block';
+                icon.className = 'bi bi-x-lg fs-3';
+            } else {
+                mobileMenu.style.display = 'none';
+                icon.className = 'bi bi-list fs-3';
+            }
+        });
+    }
+});
+</script>

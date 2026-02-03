@@ -209,13 +209,6 @@ Acceder: `http://localhost/ruebec`
 
 > ⚠️ **IMPORTANTE:** No abrir `index.html` directamente (`file://`) porque las llamadas fetch a componentes fallarán por restricciones CORS.
 
-## 📱 Información de Contacto
-
-- **WhatsApp**: [+54 9 351 389-1117](https://wa.me/5493513891117)
-- **Email**: martosludmila@gmail.com
-- **Instagram**: [@ruebec_](https://www.instagram.com/)
-- **Ubicación**: Córdoba, Argentina
-
 ## 🎯 Páginas del Sitio
 
 ### **1. Página Principal (`index.html`)**
@@ -568,8 +561,7 @@ Desarrollado con ❤️ para **Ruebec** - Tejidos Artesanales de Córdoba, Argen
 - 📧 Email: [ludmilamartos@gmail.com](mailto:ludmilamartos@gmail.com)
 - 💼 LinkedIn: [Ludmila Martos](https://www.linkedin.com/in/ludmimar89/)
 - 🐙 GitHub: [Ludmimar](https://github.com/Ludmimar)
-- 🌐 Portfolio: [ludmilamartos.dev](https://ludmilamartos.dev)
-
+- 🌐 Portfolio: [ludmilamartos.dev](https://martos-ludmila-portfolio-angular.vercel.app)
 
 ---
 

@@ -4,7 +4,7 @@
 
 ---
 
-### 🎯 El Problema de Negocio (Enfoque Senior)
+### 🎯 El Problema de Negocio 
 
 El emprendimiento Ruebec operaba principalmente a través de redes sociales, lo que generaba fricción en el proceso de venta: los clientes preguntaban repetidamente por precios, stock y costos de envío, saturando el canal de atención (WhatsApp) con consultas no calificadas.
 
